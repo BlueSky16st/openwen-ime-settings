@@ -1,0 +1,1719 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openwen.dev/schema/settings/v1/openwen-ime-settings.schema.json",
+  "title": "OpenWen Settings",
+  "type": "object",
+  "x-openwen-ime-settings-contract-version": 1,
+  "additionalProperties": false,
+  "required": [
+    "input",
+    "appearance",
+    "localLearning"
+  ],
+  "properties": {
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "defaultInputMode",
+        "candidateCount",
+        "pagePreviousKey",
+        "pageNextKey",
+        "startupChineseMode",
+        "startupFullWidth",
+        "startupChinesePunctuation",
+        "shortShiftTogglesChinese",
+        "capsLockSwitchesEnglish",
+        "enterCommitsRawCode",
+        "noCandidateSpaceAction"
+      ],
+      "properties": {
+        "defaultInputMode": {
+          "type": "string",
+          "enum": [
+            "simplifiedPinyin",
+            "ziranmaDoublePinyin",
+            "wubi86"
+          ]
+        },
+        "candidateCount": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 9
+        },
+        "pagePreviousKey": {
+          "type": "string",
+          "pattern": "^[!-~]$"
+        },
+        "pageNextKey": {
+          "type": "string",
+          "pattern": "^[!-~]$"
+        },
+        "startupChineseMode": {
+          "type": "boolean"
+        },
+        "startupFullWidth": {
+          "type": "boolean"
+        },
+        "startupChinesePunctuation": {
+          "type": "boolean"
+        },
+        "shortShiftTogglesChinese": {
+          "type": "boolean"
+        },
+        "capsLockSwitchesEnglish": {
+          "type": "boolean"
+        },
+        "enterCommitsRawCode": {
+          "type": "boolean"
+        },
+        "noCandidateSpaceAction": {
+          "type": "string",
+          "enum": [
+            "clearComposition",
+            "commitRawCode"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "!"
+              },
+              "pageNextKey": {
+                "const": "!"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "\""
+              },
+              "pageNextKey": {
+                "const": "\""
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "#"
+              },
+              "pageNextKey": {
+                "const": "#"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "$"
+              },
+              "pageNextKey": {
+                "const": "$"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "%"
+              },
+              "pageNextKey": {
+                "const": "%"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "&"
+              },
+              "pageNextKey": {
+                "const": "&"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "'"
+              },
+              "pageNextKey": {
+                "const": "'"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "("
+              },
+              "pageNextKey": {
+                "const": "("
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": ")"
+              },
+              "pageNextKey": {
+                "const": ")"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "*"
+              },
+              "pageNextKey": {
+                "const": "*"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "+"
+              },
+              "pageNextKey": {
+                "const": "+"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": ","
+              },
+              "pageNextKey": {
+                "const": ","
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "-"
+              },
+              "pageNextKey": {
+                "const": "-"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "."
+              },
+              "pageNextKey": {
+                "const": "."
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "/"
+              },
+              "pageNextKey": {
+                "const": "/"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "0"
+              },
+              "pageNextKey": {
+                "const": "0"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "1"
+              },
+              "pageNextKey": {
+                "const": "1"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "2"
+              },
+              "pageNextKey": {
+                "const": "2"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "3"
+              },
+              "pageNextKey": {
+                "const": "3"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "4"
+              },
+              "pageNextKey": {
+                "const": "4"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "5"
+              },
+              "pageNextKey": {
+                "const": "5"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "6"
+              },
+              "pageNextKey": {
+                "const": "6"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "7"
+              },
+              "pageNextKey": {
+                "const": "7"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "8"
+              },
+              "pageNextKey": {
+                "const": "8"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "9"
+              },
+              "pageNextKey": {
+                "const": "9"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": ":"
+              },
+              "pageNextKey": {
+                "const": ":"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": ";"
+              },
+              "pageNextKey": {
+                "const": ";"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "<"
+              },
+              "pageNextKey": {
+                "const": "<"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "="
+              },
+              "pageNextKey": {
+                "const": "="
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": ">"
+              },
+              "pageNextKey": {
+                "const": ">"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "?"
+              },
+              "pageNextKey": {
+                "const": "?"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "@"
+              },
+              "pageNextKey": {
+                "const": "@"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "A"
+              },
+              "pageNextKey": {
+                "const": "A"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "B"
+              },
+              "pageNextKey": {
+                "const": "B"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "C"
+              },
+              "pageNextKey": {
+                "const": "C"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "D"
+              },
+              "pageNextKey": {
+                "const": "D"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "E"
+              },
+              "pageNextKey": {
+                "const": "E"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "F"
+              },
+              "pageNextKey": {
+                "const": "F"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "G"
+              },
+              "pageNextKey": {
+                "const": "G"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "H"
+              },
+              "pageNextKey": {
+                "const": "H"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "I"
+              },
+              "pageNextKey": {
+                "const": "I"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "J"
+              },
+              "pageNextKey": {
+                "const": "J"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "K"
+              },
+              "pageNextKey": {
+                "const": "K"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "L"
+              },
+              "pageNextKey": {
+                "const": "L"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "M"
+              },
+              "pageNextKey": {
+                "const": "M"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "N"
+              },
+              "pageNextKey": {
+                "const": "N"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "O"
+              },
+              "pageNextKey": {
+                "const": "O"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "P"
+              },
+              "pageNextKey": {
+                "const": "P"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "Q"
+              },
+              "pageNextKey": {
+                "const": "Q"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "R"
+              },
+              "pageNextKey": {
+                "const": "R"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "S"
+              },
+              "pageNextKey": {
+                "const": "S"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "T"
+              },
+              "pageNextKey": {
+                "const": "T"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "U"
+              },
+              "pageNextKey": {
+                "const": "U"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "V"
+              },
+              "pageNextKey": {
+                "const": "V"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "W"
+              },
+              "pageNextKey": {
+                "const": "W"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "X"
+              },
+              "pageNextKey": {
+                "const": "X"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "Y"
+              },
+              "pageNextKey": {
+                "const": "Y"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "Z"
+              },
+              "pageNextKey": {
+                "const": "Z"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "["
+              },
+              "pageNextKey": {
+                "const": "["
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "\\"
+              },
+              "pageNextKey": {
+                "const": "\\"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "]"
+              },
+              "pageNextKey": {
+                "const": "]"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "^"
+              },
+              "pageNextKey": {
+                "const": "^"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "_"
+              },
+              "pageNextKey": {
+                "const": "_"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "`"
+              },
+              "pageNextKey": {
+                "const": "`"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "a"
+              },
+              "pageNextKey": {
+                "const": "a"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "b"
+              },
+              "pageNextKey": {
+                "const": "b"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "c"
+              },
+              "pageNextKey": {
+                "const": "c"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "d"
+              },
+              "pageNextKey": {
+                "const": "d"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "e"
+              },
+              "pageNextKey": {
+                "const": "e"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "f"
+              },
+              "pageNextKey": {
+                "const": "f"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "g"
+              },
+              "pageNextKey": {
+                "const": "g"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "h"
+              },
+              "pageNextKey": {
+                "const": "h"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "i"
+              },
+              "pageNextKey": {
+                "const": "i"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "j"
+              },
+              "pageNextKey": {
+                "const": "j"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "k"
+              },
+              "pageNextKey": {
+                "const": "k"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "l"
+              },
+              "pageNextKey": {
+                "const": "l"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "m"
+              },
+              "pageNextKey": {
+                "const": "m"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "n"
+              },
+              "pageNextKey": {
+                "const": "n"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "o"
+              },
+              "pageNextKey": {
+                "const": "o"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "p"
+              },
+              "pageNextKey": {
+                "const": "p"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "q"
+              },
+              "pageNextKey": {
+                "const": "q"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "r"
+              },
+              "pageNextKey": {
+                "const": "r"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "s"
+              },
+              "pageNextKey": {
+                "const": "s"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "t"
+              },
+              "pageNextKey": {
+                "const": "t"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "u"
+              },
+              "pageNextKey": {
+                "const": "u"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "v"
+              },
+              "pageNextKey": {
+                "const": "v"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "w"
+              },
+              "pageNextKey": {
+                "const": "w"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "x"
+              },
+              "pageNextKey": {
+                "const": "x"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "y"
+              },
+              "pageNextKey": {
+                "const": "y"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "z"
+              },
+              "pageNextKey": {
+                "const": "z"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "{"
+              },
+              "pageNextKey": {
+                "const": "{"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "|"
+              },
+              "pageNextKey": {
+                "const": "|"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "}"
+              },
+              "pageNextKey": {
+                "const": "}"
+              }
+            }
+          }
+        },
+        {
+          "not": {
+            "type": "object",
+            "required": [
+              "pagePreviousKey",
+              "pageNextKey"
+            ],
+            "properties": {
+              "pagePreviousKey": {
+                "const": "~"
+              },
+              "pageNextKey": {
+                "const": "~"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "appearance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "theme",
+        "candidateWindowColor",
+        "candidateTextSize"
+      ],
+      "properties": {
+        "theme": {
+          "type": "string",
+          "enum": [
+            "light",
+            "dark"
+          ]
+        },
+        "candidateWindowColor": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "candidateTextSize": {
+          "type": "integer",
+          "minimum": 12,
+          "maximum": 28
+        }
+      }
+    },
+    "localLearning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "OpenWen Settings",
+  "version": "0.1.0",
+  "identifier": "dev.openwen.settings",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../.openwen-build/frontend"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "OpenWen Settings",
+        "width": 1040,
+        "height": 720,
+        "minWidth": 920,
+        "minHeight": 680
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": false
+  }
+}

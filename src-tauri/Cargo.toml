@@ -1,0 +1,32 @@
+[package]
+name = "openwen-ime-settings"
+version = "0.1.0"
+description = "OpenWen Settings desktop shell"
+authors = ["OpenWen IME Contributors"]
+license = "MIT"
+edition = "2024"
+
+[lib]
+name = "openwen_ime_settings_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "openwen-ime-settings"
+path = "src/main.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = [] }
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[profile.release]
+codegen-units = 1
+debug = false
+incremental = false
+lto = "fat"
+opt-level = "z"
+panic = "abort"
+strip = "symbols"

@@ -1,0 +1,11 @@
+.DS_Store
+.idea/
+node_modules/
+dist/
+.openwen-build/
+.openwen-test-output/
+src-tauri/target/
+*.pdb
+*.msi
+*.msix
+*.exe
